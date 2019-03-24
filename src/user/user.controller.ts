@@ -1,3 +1,7 @@
+/**
+ * @author wsq
+ * @email wsq961@outlook.com
+ */
 import { Controller, Get } from '@nestjs/common';
 import { UserService } from './user.service';
 

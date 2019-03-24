@@ -1,3 +1,7 @@
+/**
+ * @author wsq
+ * @email wsq961@outlook.com
+ */
 import { Injectable } from '@nestjs/common';
 import { User } from './user.entity';
 import { CreateUserVo } from './user.vo';
@@ -14,9 +18,7 @@ export class UserService {
         });
     }
     createUser(vo: CreateUserVo) {
-        const user = User.create();
-        user.username = vo.username;
-        user.password = vo.password;
+        const user = User.create(vo);
         return user.save();
     }
 }

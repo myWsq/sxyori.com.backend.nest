@@ -1,3 +1,8 @@
+/**
+ * 入口文件
+ * @author wsq
+ * @email wsq961@outlook.com
+ */
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { AppExceptionFilter } from './app-exception.filter';

@@ -1,3 +1,8 @@
+/**
+ * ORM User实体
+ * @author wsq
+ * @email wsq961@outlook.com
+ */
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 import { AppEntity } from 'src/app.entity';
 
