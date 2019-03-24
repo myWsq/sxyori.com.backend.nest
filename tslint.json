@@ -5,6 +5,7 @@
     "no-unused-expression": true
   },
   "rules": {
+    "max-classes-per-file":false,
     "quotemark": [true, "single"],
     "member-access": [false],
     "ordered-imports": [false],

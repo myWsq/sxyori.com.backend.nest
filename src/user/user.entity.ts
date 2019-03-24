@@ -1,15 +1,66 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { AppEntity } from 'src/app.entity';
 
 @Entity()
-export class User extends BaseEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+export class User extends AppEntity {
     @Column({
         length: 20,
+        unique: true,
     })
     username: string;
+
     @Column({
         length: 256,
     })
     password: string;
+
+    @Column()
+    nickName: string;
+
+    @Column({
+        enum: [0, 1],
+    })
+    gender: number;
+
+    @Column()
+    mobile: string;
+
+    @Column({
+        nullable: true,
+    })
+    wechat: string;
+
+    @Column({
+        nullable: true,
+    })
+    qq: string;
+
+    @Column({
+        type: 'timestamp',
+        nullable: true,
+    })
+    intendedAt: Date;
+
+    @Column({
+        type: 'timestamp',
+        nullable: true,
+    })
+    gradutedAt: Date;
+
+    @Column({
+        nullable: true,
+        length: 200,
+    })
+    remark: string;
+
+    @Column({
+        nullable: true,
+    })
+    photo: string;
+
+    @Column({
+        enum: ['SUPER_ADMIN', 'ADMIN', 'PUBLIC'],
+        default: 'PUBLIC',
+    })
+    role: 'SUPER_ADMIN' | 'ADMIN' | 'PUBLIC';
 }
