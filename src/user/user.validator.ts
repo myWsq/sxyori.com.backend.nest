@@ -3,10 +3,16 @@
  * @author wsq
  * @email wsq961@outlook.com
  */
-import { ValidatorConstraintInterface, ValidationArguments, ValidationOptions, registerDecorator, ValidatorConstraint } from 'class-validator';
+import {
+    ValidatorConstraintInterface,
+    ValidationArguments,
+    ValidationOptions,
+    registerDecorator,
+    ValidatorConstraint,
+} from 'class-validator';
 import { User } from './user.entity';
 
-@ValidatorConstraint({async: true})
+@ValidatorConstraint({ async: true })
 export class IsUserNotExist implements ValidatorConstraintInterface {
     async validate(value: any, args: ValidationArguments) {
         const user = await User.findOne({

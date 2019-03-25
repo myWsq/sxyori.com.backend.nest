@@ -29,6 +29,7 @@
     "class-validator": "^0.9.1",
     "jsonwebtoken": "^8.5.1",
     "pg": "^7.9.0",
+    "qiniu": "^7.2.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^2.6.2",
     "rxjs": "^6.3.3",

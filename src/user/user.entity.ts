@@ -4,7 +4,7 @@
  * @email wsq961@outlook.com
  */
 import { Entity, Column } from 'typeorm';
-import { AppEntity } from 'src/app.entity';
+import { AppEntity } from '../app.entity';
 import { Exclude } from 'class-transformer';
 @Entity()
 export class User extends AppEntity {

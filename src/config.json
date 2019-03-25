@@ -1,0 +1,15 @@
+{
+    "jwtSecretKey": "Your",
+    "ormconfig": {
+        "host": "sxyori.com",
+        "port": 5432,
+        "username": "postgres",
+        "password": "wsq123",
+        "database": "sxyori.com.dev"
+    },
+    "qiniu": {
+        "accessKey": "x4iUi5sMkCPrpZPoAkbYtPuVA22g3jknYws1kUsJ",
+        "secretKey": "PCov4cDtCAxbocCwwv4rPDWYkEflJ8MacQO3_oaj",
+        "bucket": "sxyori"
+    }
+}

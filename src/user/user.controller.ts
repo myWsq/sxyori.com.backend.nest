@@ -2,7 +2,14 @@
  * @author wsq
  * @email wsq961@outlook.com
  */
-import { Controller, Get, Put, Body, UseInterceptors, ClassSerializerInterceptor } from '@nestjs/common';
+import {
+    Controller,
+    Get,
+    Put,
+    Body,
+    UseInterceptors,
+    ClassSerializerInterceptor,
+} from '@nestjs/common';
 import { UserService } from './user.service';
 import { RegisterDto } from './user.dto';
 import * as bcrypt from 'bcrypt';

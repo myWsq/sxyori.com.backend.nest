@@ -34,7 +34,7 @@ export const AppExceptionMap = {
         message: '密码错误',
     },
     VALIDATION_ERROR(message: any) {
-       return{
+        return {
             code: 4,
             message,
         };

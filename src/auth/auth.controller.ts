@@ -2,12 +2,19 @@
  * @author wsq
  * @email wsq961@outlook.com
  */
-import { Controller, Post, Body, Get, UseInterceptors, ClassSerializerInterceptor } from '@nestjs/common';
+import {
+    Controller,
+    Post,
+    Body,
+    Get,
+    UseInterceptors,
+    ClassSerializerInterceptor,
+} from '@nestjs/common';
 import { LoginDto } from './auth.dto';
-import { UserService } from 'src/user/user.service';
+import { UserService } from '../user/user.service';
 import { AuthService } from './auth.service';
-import { Auth, AuthUser } from 'src/app.decorator';
-import { User } from 'src/user/user.entity';
+import { Auth, AuthUser } from '../app.decorator';
+import { User } from '../user/user.entity';
 
 @Controller('auth')
 export class AuthController {

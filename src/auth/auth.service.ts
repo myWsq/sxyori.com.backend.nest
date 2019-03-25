@@ -3,29 +3,28 @@
  * @email wsq961@outlook.com
  */
 import { Injectable } from '@nestjs/common';
-import { User } from 'src/user/user.entity';
+import { User } from '../user/user.entity';
 import * as jwt from 'jsonwebtoken';
-import { readFileSync } from 'fs';
-
+import { jwtSecretKey } from '../config.json';
 export interface JwtPayload {
     id: number;
     username: string;
 }
 @Injectable()
 export class AuthService {
-    jwtKey: string;
-    constructor() {
-        this.jwtKey = readFileSync('jwt.key').toString();
-    }
     signJwt(user: User) {
-        return jwt.sign({
-            id: user.id,
-            username: user.username,
-        }, this.jwtKey, {
-            expiresIn: 3600 * 24 * 30,
-        });
+        return jwt.sign(
+            {
+                id: user.id,
+                username: user.username,
+            },
+            jwtSecretKey,
+            {
+                expiresIn: 3600 * 24 * 30,
+            },
+        );
     }
     verifyJwt(token: string) {
-        return jwt.verify(token, this.jwtKey) as JwtPayload;
+        return jwt.verify(token, jwtSecretKey) as JwtPayload;
     }
 }

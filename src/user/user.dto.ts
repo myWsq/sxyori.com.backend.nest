@@ -1,4 +1,11 @@
-import { IsAlphanumeric, IsDefined, MaxLength, IsMobilePhone, IsEnum, Validate } from 'class-validator';
+import {
+    IsAlphanumeric,
+    IsDefined,
+    MaxLength,
+    IsMobilePhone,
+    IsEnum,
+    Validate,
+} from 'class-validator';
 import { IsUserNotExist } from './user.validator';
 
 /**
