@@ -3,9 +3,9 @@
  * @author wsq
  * @email wsq961@outlook.com
  */
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, Column } from 'typeorm';
 import { AppEntity } from 'src/app.entity';
-
+import { Exclude } from 'class-transformer';
 @Entity()
 export class User extends AppEntity {
     @Column({
@@ -14,6 +14,7 @@ export class User extends AppEntity {
     })
     username: string;
 
+    @Exclude()
     @Column({
         length: 256,
     })

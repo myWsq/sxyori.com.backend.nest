@@ -4,20 +4,21 @@
  */
 import { Injectable } from '@nestjs/common';
 import { User } from './user.entity';
-import { CreateUserVo } from './user.vo';
+import { getRepository } from 'typeorm';
 @Injectable()
 export class UserService {
     async getAllUser() {
         return User.find();
     }
     async findOneUser(username: string) {
-        return User.findOne({
+        return getRepository(User).findOne({
             where: {
                 username,
             },
+            cache: true,
         });
     }
-    createUser(vo: CreateUserVo) {
+    createUser(vo: Partial<User>) {
         const user = User.create(vo);
         return user.save();
     }

@@ -6,7 +6,6 @@
 import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { AppGuard } from './app.guard';
@@ -15,7 +14,6 @@ import { AppMiddleware } from './app.middleware';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(),
     AuthModule,
     UserModule,
   ],
