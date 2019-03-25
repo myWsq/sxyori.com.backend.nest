@@ -21,21 +21,9 @@ export interface AppExceptionMapItemInterface {
 }
 
 export const AppExceptionMap = {
-    USER_NOT_FOUND: {
-        code: 1,
-        message: '用户不存在',
-    },
-    USER_ALREADY_EXISTS: {
-        code: 2,
-        message: '用户已存在',
-    },
-    PASSWORD_ERROR: {
-        code: 3,
-        message: '密码错误',
-    },
     VALIDATION_ERROR(message: any) {
         return {
-            code: 4,
+            code: 1,
             message,
         };
     },
