@@ -12,5 +12,9 @@
         "secretKey": "",
         "bucket": "",
         "cdn":""
+    },
+    "bmob":{
+        "applicationId":"",
+        "restApiKey":""
     }
 }
