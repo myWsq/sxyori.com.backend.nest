@@ -1,4 +1,10 @@
-import { IsAlphanumeric, IsDefined, Validate } from 'class-validator';
+import {
+    IsAlphanumeric,
+    IsDefined,
+    Validate,
+    IsMobilePhone,
+    IsString,
+} from 'class-validator';
 import { IsUserExist, IsPasswordCorrect } from './auth.validator';
 
 /**
@@ -7,10 +13,21 @@ import { IsUserExist, IsPasswordCorrect } from './auth.validator';
  * @email wsq961@outlook.com
  */
 export class LoginDto {
-    @IsAlphanumeric()
+
+    @IsDefined()
     @Validate(IsUserExist)
     username: string;
+
     @IsDefined()
     @Validate(IsPasswordCorrect)
     password: string;
+}
+
+export class SendSmsCodeDto {
+    @IsDefined()
+    @IsMobilePhone('zh-CN')
+    mobile: string;
+
+    @IsDefined()
+    validateToken: string;
 }

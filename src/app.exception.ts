@@ -27,4 +27,14 @@ export const AppExceptionMap = {
             message,
         };
     },
+    SMS_SEND_ERROR(message: any) {
+        return { code: 2, message };
+    },
+
+    SMS_CAPTCHA_GEN_ERROR(message: any) {
+        return {
+            code: 3,
+            message,
+        };
+    },
 };

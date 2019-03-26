@@ -6,8 +6,6 @@
 import {
     ValidatorConstraintInterface,
     ValidationArguments,
-    ValidationOptions,
-    registerDecorator,
     ValidatorConstraint,
 } from 'class-validator';
 import { User } from './user.entity';

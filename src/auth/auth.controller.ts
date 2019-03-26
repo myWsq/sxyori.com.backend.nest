@@ -10,7 +10,7 @@ import {
     UseInterceptors,
     ClassSerializerInterceptor,
 } from '@nestjs/common';
-import { LoginDto } from './auth.dto';
+import { LoginDto, SendSmsCodeDto } from './auth.dto';
 import { UserService } from '../user/user.service';
 import { AuthService } from './auth.service';
 import { Auth, AuthUser } from '../app.decorator';
@@ -23,6 +23,7 @@ export class AuthController {
         private readonly authService: AuthService,
     ) {}
 
+    /** 用户获取信息 */
     @Get()
     @Auth()
     @UseInterceptors(ClassSerializerInterceptor)
@@ -30,9 +31,22 @@ export class AuthController {
         return user;
     }
 
+    /** 用户登录 */
     @Post()
     async login(@Body() body: LoginDto) {
         const user = await this.userService.findOneUser(body.username);
         return this.authService.signJwt(user);
+    }
+
+    /** 发送短信验证码 */
+    @Post('sms')
+    sendSmsCode(@Body() body: SendSmsCodeDto) {
+        return this.authService.sendSmsCode(body.mobile, body.validateToken);
+    }
+
+    /** 生成图片验证码 */
+    @Get('sms/captcha')
+    getSmsCaptcha() {
+        return this.authService.genSmsCaptcha();
     }
 }
