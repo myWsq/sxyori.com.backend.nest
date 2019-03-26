@@ -13,7 +13,6 @@ import { IsUserExist, IsPasswordCorrect } from './auth.validator';
  * @email wsq961@outlook.com
  */
 export class LoginDto {
-
     @IsDefined()
     @Validate(IsUserExist)
     username: string;

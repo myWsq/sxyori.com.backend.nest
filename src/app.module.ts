@@ -7,6 +7,7 @@ import { AppGuard } from './app.guard';
 import { APP_GUARD } from '@nestjs/core';
 import { AppMiddleware } from './app.middleware';
 import { UploadModule } from './upload/upload.module';
+import { PostModule } from './post/post.module';
 /**
  * 项目根Module
  * @author wsq
@@ -14,7 +15,7 @@ import { UploadModule } from './upload/upload.module';
  */
 
 @Module({
-    imports: [AuthModule, UserModule, UploadModule],
+    imports: [AuthModule, UserModule, UploadModule, PostModule],
     controllers: [AppController],
     providers: [
         {
