@@ -4,7 +4,10 @@ import {
     IsOptional,
     IsUrl,
     IsBoolean,
+    Validate,
+    IsNumberString,
 } from 'class-validator';
+import { IsPostTypeExist } from '../validator/is-post-type-exist.validator';
 
 /**
  * 创建文章 数据传输类型
@@ -18,6 +21,7 @@ export class CreatePostDto {
     title: string;
 
     @IsOptional()
+    @IsNotEmpty()
     @MaxLength(50)
     subTitle: string;
 
@@ -32,4 +36,9 @@ export class CreatePostDto {
     @IsBoolean()
     @IsOptional()
     isTop: boolean;
+
+    @IsNumberString()
+    @IsOptional()
+    @Validate(IsPostTypeExist)
+    typeId: number;
 }

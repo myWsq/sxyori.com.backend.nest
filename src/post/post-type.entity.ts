@@ -1,4 +1,4 @@
-import { AppEntity } from 'src/app.entity';
+import { AppEntity } from '../app.entity';
 import { Entity, Column, OneToMany } from 'typeorm';
 import { PostEntity } from './post.entity';
 

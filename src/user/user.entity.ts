@@ -3,9 +3,10 @@
  * @author wsq
  * @email wsq961@outlook.com
  */
-import { Entity, Column } from 'typeorm';
+import { Entity, Column, ManyToOne, OneToMany } from 'typeorm';
 import { AppEntity } from '../app.entity';
 import { Exclude } from 'class-transformer';
+import { PostEntity } from 'src/post/post.entity';
 @Entity()
 export class User extends AppEntity {
     @Column({
@@ -69,4 +70,7 @@ export class User extends AppEntity {
         default: 'PUBLIC',
     })
     role: 'SUPER_ADMIN' | 'ADMIN' | 'PUBLIC';
+
+    @OneToMany(type => PostEntity, post => post.user)
+    posts: PostEntity[];
 }
