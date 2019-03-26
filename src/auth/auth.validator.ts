@@ -11,8 +11,8 @@ import {
 } from 'class-validator';
 import { User } from '../user/user.entity';
 import * as bcrypt from 'bcrypt';
-import { LoginDto } from './auth.dto';
 import { getRepository } from 'typeorm';
+import { LoginDto } from './dto/login.dto';
 
 @ValidatorConstraint({ async: true })
 export class IsUserExist implements ValidatorConstraintInterface {
