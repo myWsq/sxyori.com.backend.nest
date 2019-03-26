@@ -11,8 +11,8 @@ import {
     ClassSerializerInterceptor,
 } from '@nestjs/common';
 import { UserService } from './user.service';
-import { RegisterDto } from './user.dto';
 import * as bcrypt from 'bcrypt';
+import { RegisterDto } from './dto/register.dto';
 @Controller('user')
 export class UserController {
     constructor(private readonly userService: UserService) {}

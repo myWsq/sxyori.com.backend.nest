@@ -1,3 +1,9 @@
+/**
+ * 注册数据传输类型
+ * @author wsq
+ * @email wsq961@outlook.com
+ */
+
 import {
     IsAlphanumeric,
     IsDefined,
@@ -6,13 +12,7 @@ import {
     IsEnum,
     Validate,
 } from 'class-validator';
-import { IsUserNotExist } from './user.validator';
-
-/**
- * User 数据传输类型
- * @author wsq
- * @email wsq961@outlook.com
- */
+import { IsUserNotExist } from '../validator/is-user-exist.validator';
 
 export enum Gender {
     male = 1,

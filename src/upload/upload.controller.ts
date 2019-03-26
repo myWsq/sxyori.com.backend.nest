@@ -4,7 +4,7 @@
  */
 import { Controller, Post, Body } from '@nestjs/common';
 import { UploadService } from './upload.service';
-import { GenUploadTokenDto } from './upload.dto';
+import { GenUploadTokenDto } from './dto/gen-upload-token.dto';
 
 @Controller('upload')
 export class UploadController {

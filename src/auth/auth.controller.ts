@@ -10,11 +10,12 @@ import {
     UseInterceptors,
     ClassSerializerInterceptor,
 } from '@nestjs/common';
-import { LoginDto, SendSmsCodeDto } from './auth.dto';
 import { UserService } from '../user/user.service';
 import { AuthService } from './auth.service';
 import { Auth, AuthUser } from '../app.decorator';
 import { User } from '../user/user.entity';
+import { LoginDto } from './dto/login.dto';
+import { SendSmsCodeDto } from './dto/send-sms-code.dto';
 
 @Controller('auth')
 export class AuthController {
