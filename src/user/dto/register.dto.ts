@@ -11,8 +11,10 @@ import {
     IsMobilePhone,
     IsEnum,
     Validate,
+    IsNumberString,
 } from 'class-validator';
-import { IsUserNotExist } from '../validator/is-user-exist.validator';
+import { IsUserNotExist } from '../validator/is-user-not-exist.validator';
+import { IsPasswordValid } from '../validator/is-password-valid.validator';
 
 export enum Gender {
     male = 1,
@@ -25,7 +27,7 @@ export class RegisterDto {
     username: string;
 
     @IsDefined()
-    @MaxLength(15)
+    @Validate(IsPasswordValid)
     password: string;
 
     @MaxLength(10)
@@ -37,4 +39,8 @@ export class RegisterDto {
 
     @IsEnum(Gender)
     gender: number;
+
+    @IsNumberString()
+    smsCode: string;
+
 }

@@ -29,7 +29,9 @@ export class User extends AppEntity {
     })
     gender: number;
 
-    @Column()
+    @Column({
+        unique: true,
+    })
     mobile: string;
 
     @Column({

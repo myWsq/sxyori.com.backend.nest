@@ -7,6 +7,7 @@
 import {
     IsMobilePhone,
     IsNotEmpty,
+    IsNumberString,
 } from 'class-validator';
 
 export class SendSmsCodeDto {
@@ -14,6 +15,6 @@ export class SendSmsCodeDto {
     @IsMobilePhone('zh-CN')
     mobile: string;
 
-    @IsNotEmpty()
-    validateToken: string;
+    @IsNumberString()
+    captchaCode: string;
 }

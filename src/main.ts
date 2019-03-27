@@ -9,14 +9,16 @@ import { AppExceptionFilter } from './app-exception.filter';
 import { AppInterceptor } from './app.interceptor';
 import { ValidationPipe } from '@nestjs/common';
 import { AppException, AppExceptionMap } from './app.exception';
-import 'reflect-metadata';
-import { createConnection, ConnectionOptions } from 'typeorm';
-import { readFileSync } from 'fs';
+import { createConnection } from 'typeorm';
+import * as session from 'express-session';
 
-import { ormconfig } from './config.json';
+import 'reflect-metadata';
+
+import { ormconfig, jwtSecretKey } from './config.json';
 
 async function bootstrap() {
-    const conn = await createConnection({
+    /** 连接数据库 */
+    await createConnection({
         ...ormconfig,
         type: 'postgres',
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
@@ -24,6 +26,13 @@ async function bootstrap() {
         cache: true,
     });
     const app = await NestFactory.create(AppModule);
+    app.use(
+        session({
+            secret: jwtSecretKey,
+            resave: false,
+            saveUninitialized: true,
+        }),
+    );
     app.useGlobalFilters(new AppExceptionFilter());
     app.useGlobalInterceptors(new AppInterceptor());
     app.useGlobalPipes(

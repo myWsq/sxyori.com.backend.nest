@@ -14,6 +14,11 @@ import * as bcrypt from 'bcrypt';
 import { getRepository } from 'typeorm';
 import { LoginDto } from './dto/login.dto';
 
+/**
+ * 验证用户是否存在
+ * 可用于用户的任何字段 `id` or `mobile` ...
+ * `@Validate(IsUserExist)`
+ */
 @ValidatorConstraint({ async: true })
 export class IsUserExist implements ValidatorConstraintInterface {
     async validate(value: any, args: ValidationArguments) {

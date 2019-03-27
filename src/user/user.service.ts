@@ -4,7 +4,7 @@
  */
 import { Injectable } from '@nestjs/common';
 import { User } from './user.entity';
-import { getRepository } from 'typeorm';
+import { getRepository, DeepPartial } from 'typeorm';
 @Injectable()
 export class UserService {
     async getAllUser() {
@@ -18,8 +18,18 @@ export class UserService {
             cache: true,
         });
     }
+    async findOneUserByMobile(mobile: string) {
+        return User.findOne({
+            where: {
+                mobile,
+            },
+        });
+    }
     createUser(vo: Partial<User>) {
         const user = User.create(vo);
         return user.save();
+    }
+    updateUser(id: number, vo: DeepPartial<User>) {
+        return User.update(id, vo);
     }
 }
