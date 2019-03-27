@@ -1,3 +1,9 @@
+/**
+ * 创建文章 数据传输类型
+ * @author wsq
+ * @email wsq961@outlook.com
+ */
+
 import {
     IsNotEmpty,
     MaxLength,
@@ -5,16 +11,8 @@ import {
     IsUrl,
     IsBoolean,
     Validate,
-    IsNumberString,
 } from 'class-validator';
 import { IsPostTypeExist } from '../validator/is-post-type-exist.validator';
-
-/**
- * 创建文章 数据传输类型
- * @author wsq
- * @email wsq961@outlook.com
- */
-
 export class CreatePostDto {
     @IsNotEmpty()
     @MaxLength(20)
@@ -37,7 +35,6 @@ export class CreatePostDto {
     @IsOptional()
     isTop: boolean;
 
-    @IsNumberString()
     @IsOptional()
     @Validate(IsPostTypeExist)
     typeId: number;
