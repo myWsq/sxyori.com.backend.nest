@@ -5,7 +5,7 @@
 import { Injectable } from '@nestjs/common';
 import { qiniu } from '../config.json';
 import * as Qiniu from 'qiniu';
-import { GenUploadTokenDto } from './upload.dto.js';
+import { GenUploadTokenDto } from './dto/gen-upload-token.dto.js';
 
 @Injectable()
 export class UploadService {
