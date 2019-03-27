@@ -13,7 +13,7 @@
 			"/**",
 			" * ${1:description}",
 			" * @author wsq",
-			" * @email wsq961@outlook.com",
+			" * @email `wsq961@outlook.com`",
 			" */"
 		],
 		"description": "Add file top note"

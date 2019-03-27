@@ -8,7 +8,7 @@ import {
  * 用户密码是否符合规范 - 验证器
  * 8-16位, 至少包含一个字母和数字
  * @author wsq
- * @email wsq961@outlook.com
+ * @email `wsq961@outlook.com`
  */
 @ValidatorConstraint()
 export class IsPasswordValid implements ValidatorConstraintInterface {

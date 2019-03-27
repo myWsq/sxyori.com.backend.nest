@@ -1,7 +1,7 @@
 /**
  * 全局路由守卫
  * @author wsq
- * @email wsq961@outlook.com
+ * @email `wsq961@outlook.com`
  */
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';

@@ -1,7 +1,7 @@
 /**
  * 全局中间件 将jwt解析为`User`添加至Request中
  * @author wsq
- * @email wsq961@outlook.com
+ * @email `wsq961@outlook.com`
  */
 import {
     Injectable,

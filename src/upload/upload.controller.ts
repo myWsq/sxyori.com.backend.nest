@@ -1,6 +1,6 @@
 /**
  * @author wsq
- * @email wsq961@outlook.com
+ * @email `wsq961@outlook.com`
  */
 import { Controller, Post, Body } from '@nestjs/common';
 import { UploadService } from './upload.service';

@@ -1,7 +1,7 @@
 /**
  * 验证器 - 用户是否不存在
  * @author wsq
- * @email wsq961@outlook.com
+ * @email `wsq961@outlook.com`
  */
 import {
     ValidatorConstraintInterface,

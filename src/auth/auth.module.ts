@@ -1,6 +1,6 @@
 /**
  * @author wsq
- * @email wsq961@outlook.com
+ * @email `wsq961@outlook.com`
  */
 import { Module, HttpModule } from '@nestjs/common';
 import { AuthController } from './auth.controller';

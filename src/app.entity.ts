@@ -1,7 +1,7 @@
 /**
  * ORM Entity 基类
  * @author wsq
- * @emial wsq961@outlook.com
+ * @emial `wsq961@outlook.com`
  */
 import {
     Entity,

@@ -1,7 +1,7 @@
 /**
  * 注册数据传输类型
  * @author wsq
- * @email wsq961@outlook.com
+ * @email `wsq961@outlook.com`
  */
 
 import {

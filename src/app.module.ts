@@ -13,7 +13,7 @@ import { TeacherModule } from './teacher/teacher.module';
 /**
  * 项目根Module
  * @author wsq
- * @email wsq961@outlook.com
+ * @email `wsq961@outlook.com`
  */
 
 @Module({

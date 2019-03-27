@@ -5,7 +5,7 @@ import { IsPasswordValid } from '../validator/is-password-valid.validator';
 /**
  * 修改密码 数据传输类型
  * @author wsq
- * @email wsq961@outlook.com
+ * @email `wsq961@outlook.com`
  */
 
 export class ResetPasswordDto {

@@ -4,7 +4,7 @@ import { Gender } from './register.dto';
 /**
  * 更新用户基本信息 数据传输类型
  * @author wsq
- * @email wsq961@outlook.com
+ * @email `wsq961@outlook.com`
  */
 
 export class UpdateInfoDto {

@@ -1,7 +1,7 @@
 /**
  * 自定义验证器
  * @author wsq
- * @email wsq961@outlook.com
+ * @email `wsq961@outlook.com`
  */
 
 import {

@@ -1,7 +1,7 @@
 /**
  * 自定义错误层次
  * @author wsq
- * @email wsq961@outlook.com
+ * @email `wsq961@outlook.com`
  * `throw new AppException(AppExceptionMap.USER_NOT_FOUND)`
  */
 import { HttpException } from '@nestjs/common';

@@ -1,7 +1,7 @@
 /**
  * 验证器 检查文章是否存在
  * @author wsq
- * @email wsq961@outlook.com
+ * @email `wsq961@outlook.com`
  */
 
 import {

@@ -1,7 +1,7 @@
 /**
  * 文章管理模块
  * @author wsq
- * @email wsq961@outlook.com
+ * @email `wsq961@outlook.com`
  */
 import { Module } from '@nestjs/common';
 import { PostController } from './post.controller';

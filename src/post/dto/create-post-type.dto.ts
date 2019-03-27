@@ -1,7 +1,7 @@
 /**
  * 新建文章类型 数据传输类型
  * @author wsq
- * @email wsq961@outlook.com
+ * @email `wsq961@outlook.com`
  */
 import { IsNotEmpty, MaxLength } from 'class-validator';
 
