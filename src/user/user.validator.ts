@@ -1,8 +1,3 @@
-/**
- * 自定义验证器
- * @author wsq
- * @email `wsq961@outlook.com`
- */
 import {
     ValidatorConstraintInterface,
     ValidationArguments,
@@ -10,6 +5,13 @@ import {
 } from 'class-validator';
 import { User } from './user.entity';
 
+/**
+ * 验证用户是否不存在
+ * 可用于用户的任何字段
+ * `@Validate(IsUserNotExist)`
+ * @author wsq
+ * @email `wsq961@outlook.com`
+ */
 @ValidatorConstraint({ async: true })
 export class IsUserNotExist implements ValidatorConstraintInterface {
     async validate(value: any, args: ValidationArguments) {

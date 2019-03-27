@@ -6,7 +6,7 @@ export class UpdateUserPasswordDto {
     @Validate(IsUserExist)
     username: string;
     @Validate(IsPasswordCorrect)
-    oldPassword: string;
+    password: string;
     @Validate(IsPasswordValid)
     newPassword: string;
 }

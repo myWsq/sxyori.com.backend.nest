@@ -24,6 +24,7 @@ import { User } from './user.entity';
 import { ValidateUserIdDto } from './dto/validate-user-id.dto';
 import { UpdateUserPasswordDto } from './dto/update-user-password.dto';
 import { UpdateUserRoleDto } from './dto/update-user-role.dto';
+import { ResetUserMobileDto } from './dto/reset-user-mobile.dto';
 @Controller('user')
 export class UserController {
     constructor(
@@ -55,6 +56,22 @@ export class UserController {
             switchMap(async _ =>
                 this.userService.updateUser(user.id, {
                     password: await bcrypt.hash(body.newPassword, 3),
+                }),
+            ),
+        );
+    }
+
+    /** 用户修改绑定手机号码 */
+    @Post('mobile')
+    @Auth()
+    async resetMobile(
+        @Body() body: ResetUserMobileDto,
+        @AuthUser() user: User,
+    ) {
+        return this.authService.verifySmsCode(body.smsCode, body.mobile).pipe(
+            switchMap(async _ =>
+                this.userService.updateUser(user.id, {
+                    mobile: body.mobile,
                 }),
             ),
         );
