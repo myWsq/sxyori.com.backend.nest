@@ -8,6 +8,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { AppMiddleware } from './app.middleware';
 import { UploadModule } from './upload/upload.module';
 import { PostModule } from './post/post.module';
+import { TeacherModule } from './teacher/teacher.module';
 /**
  * 项目根Module
  * @author wsq
@@ -15,7 +16,7 @@ import { PostModule } from './post/post.module';
  */
 
 @Module({
-    imports: [AuthModule, UserModule, UploadModule, PostModule],
+    imports: [AuthModule, UserModule, UploadModule, PostModule, TeacherModule],
     controllers: [AppController],
     providers: [
         {
