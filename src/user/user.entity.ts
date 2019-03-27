@@ -3,10 +3,10 @@
  * @author wsq
  * @email wsq961@outlook.com
  */
-import { Entity, Column, ManyToOne, OneToMany } from 'typeorm';
+import { Entity, Column, OneToMany } from 'typeorm';
 import { AppEntity } from '../app.entity';
 import { Exclude } from 'class-transformer';
-import { PostEntity } from 'src/post/post.entity';
+import { PostEntity } from '../post/post.entity';
 @Entity()
 export class User extends AppEntity {
     @Column({
