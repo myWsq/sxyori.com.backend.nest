@@ -36,6 +36,9 @@ export class PostService {
         await postPromise;
         return PostType.delete(id);
     }
+    async updatePostType(id: number, vo: DeepPartial<PostType>) {
+        return PostType.update(id, vo);
+    }
     async updatePost(id: number, vo: DeepPartial<PostEntity>) {
         return PostEntity.update(id, vo);
     }

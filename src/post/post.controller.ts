@@ -14,8 +14,8 @@ import {
 } from '@nestjs/common';
 import { CreatePostDto } from './dto/create-post.dto';
 import { PostService } from './post.service';
-import { Auth, AuthUser } from 'src/app.decorator';
-import { User } from 'src/user/user.entity';
+import { Auth, AuthUser } from '../app.decorator';
+import { User } from '../user/user.entity';
 import { PostEntity } from './post.entity';
 import { CreatePostTypeDto } from './dto/create-post-type.dto';
 import { GetPostDto } from './dto/get-post.dto';
@@ -80,6 +80,16 @@ export class PostController {
     async deletePostType(@Body() body: DeletePostTypeDto) {
         return this.postService.deletePostType(body.id, body.cascade);
     }
+
+    @Put('type/:id')
+    @Auth('ADMIN', 'SUPER_ADMIN')
+    async updatePostType(
+        @Param() param: DeletePostTypeDto,
+        @Body() body: CreatePostTypeDto,
+    ) {
+        this.postService.updatePostType(param.id, body);
+    }
+
     @Delete(':id')
     @Auth('ADMIN', 'SUPER_ADMIN')
     async deletePost(@Param() param: DeletePostDto) {
@@ -92,6 +102,11 @@ export class PostController {
         @Body() body: CreatePostDto,
         @Param() param: DeletePostDto,
     ) {
-        return this.postService.updatePost(param.id, body);
+        const vo = {
+            ...body,
+            type: body.typeId && { id: body.typeId },
+        };
+        delete vo.typeId;
+        return this.postService.updatePost(param.id, vo);
     }
 }

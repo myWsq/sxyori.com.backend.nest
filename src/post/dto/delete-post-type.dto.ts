@@ -1,4 +1,4 @@
-import { IsBoolean, IsDefined, Validate } from 'class-validator';
+import { IsBoolean, IsDefined, Validate, IsOptional } from 'class-validator';
 import { IsPostTypeExist } from '../validator/is-post-type-exist.validator';
 
 /**
@@ -13,7 +13,7 @@ export class DeletePostTypeDto {
     id: number;
 
     /** 是否级联删除该类型下的所有文章 */
+    @IsOptional()
     @IsBoolean()
-    @IsDefined()
     cascade: boolean;
 }
