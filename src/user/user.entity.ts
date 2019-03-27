@@ -71,7 +71,7 @@ export class User extends AppEntity {
         enum: ['SUPER_ADMIN', 'ADMIN', 'PUBLIC'],
         default: 'PUBLIC',
     })
-    role: 'SUPER_ADMIN' | 'ADMIN' | 'PUBLIC';
+    role: string;
 
     @OneToMany(type => PostEntity, post => post.user)
     posts: PostEntity[];

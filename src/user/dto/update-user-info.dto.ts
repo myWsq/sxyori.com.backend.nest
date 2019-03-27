@@ -7,7 +7,7 @@ import { Gender } from './register.dto';
  * @email `wsq961@outlook.com`
  */
 
-export class UpdateInfoDto {
+export class UpdateUserInfoDto {
     @MaxLength(10)
     @IsOptional()
     nickName: string;

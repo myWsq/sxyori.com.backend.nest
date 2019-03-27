@@ -8,7 +8,7 @@ import { IsPasswordValid } from '../validator/is-password-valid.validator';
  * @email `wsq961@outlook.com`
  */
 
-export class ResetPasswordDto {
+export class ResetUserPasswordDto {
     @IsMobilePhone('zh-CN')
     @Validate(IsUserExist)
     mobile: string;

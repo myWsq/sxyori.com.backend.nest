@@ -15,14 +15,15 @@ import {
 import { UserService } from './user.service';
 import * as bcrypt from 'bcrypt';
 import { RegisterDto } from './dto/register.dto';
-import { UpdateInfoDto } from './dto/update-info.dto';
+import { UpdateUserInfoDto } from './dto/update-user-info.dto';
 import { AuthService } from '../auth/auth.service';
 import { switchMap } from 'rxjs/operators';
-import { ResetPasswordDto } from './dto/reset-password.dto';
+import { ResetUserPasswordDto } from './dto/reset-user-password.dto';
 import { Auth, AuthUser } from '../app.decorator';
 import { User } from './user.entity';
 import { ValidateUserIdDto } from './dto/validate-user-id.dto';
-import { UpdatePasswordDto } from './dto/update-password.dto';
+import { UpdateUserPasswordDto } from './dto/update-user-password.dto';
+import { UpdateUserRoleDto } from './dto/update-user-role.dto';
 @Controller('user')
 export class UserController {
     constructor(
@@ -48,7 +49,7 @@ export class UserController {
 
     /** 通过手机重置密码 */
     @Post('password')
-    async resetPassword(@Body() body: ResetPasswordDto) {
+    async resetPassword(@Body() body: ResetUserPasswordDto) {
         const user = await this.userService.findOneUserByMobile(body.mobile);
         return this.authService.verifySmsCode(body.smsCode, body.mobile).pipe(
             switchMap(async _ =>
@@ -61,17 +62,26 @@ export class UserController {
 
     /** 通过旧密码修改密码 */
     @Put('password')
-    async updatePassword(@Body() body: UpdatePasswordDto) {
+    async updatePassword(@Body() body: UpdateUserPasswordDto) {
         const user = await this.userService.findOneUser(body.username);
         return this.userService.updateUser(user.id, {
             password: await bcrypt.hash(body.newPassword, 3),
         });
     }
 
+    /** 超级管理员修改用户角色 */
+    @Post('role')
+    @Auth('SUPER_ADMIN')
+    async updateUserRole(@Body() body: UpdateUserRoleDto) {
+        return this.userService.updateUser(body.id, {
+            role: body.role,
+        });
+    }
+
     /** 已登录用户修改基本信息 */
     @Put()
     @Auth()
-    async updateInfo(@Body() body: UpdateInfoDto, @AuthUser() user: User) {
+    async updateInfo(@Body() body: UpdateUserInfoDto, @AuthUser() user: User) {
         return this.userService.updateUser(user.id, body);
     }
 
@@ -80,7 +90,7 @@ export class UserController {
     @Put(':id')
     async updateInfoAdmin(
         @Param() param: ValidateUserIdDto,
-        @Body() body: UpdateInfoDto,
+        @Body() body: UpdateUserInfoDto,
     ) {
         return this.userService.updateUser(param.id, body);
     }
