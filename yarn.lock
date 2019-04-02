@@ -121,6 +121,10 @@
   dependencies:
     "@types/node" "*"
 
+"@types/lodash@^4.14.123":
+  version "4.14.123"
+  resolved "http://registry.npm.taobao.org/@types/lodash/download/@types/lodash-4.14.123.tgz#39be5d211478c8dd3bdae98ee75bb7efe4abfe4d"
+
 "@types/mime@*":
   version "2.0.1"
   resolved "http://registry.npm.taobao.org/@types/mime/download/@types/mime-2.0.1.tgz#dc488842312a7f075149312905b5e3c0b054c79d"
@@ -2754,7 +2758,7 @@ lodash.sortby@^4.7.0:
 
 lodash@^4.17.11, lodash@^4.17.4:
   version "4.17.11"
-  resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
+  resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.11.tgz?cache=0&other_urls=http%3A%2F%2Fregistry.npm.taobao.org%2Flodash%2Fdownload%2Flodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
 
 loose-envify@^1.0.0:
   version "1.4.0"

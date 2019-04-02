@@ -9,6 +9,7 @@ import { AppMiddleware } from './app.middleware';
 import { UploadModule } from './upload/upload.module';
 import { PostModule } from './post/post.module';
 import { TeacherModule } from './teacher/teacher.module';
+import { CourseModule } from './course/course.module';
 
 /**
  * 项目根Module
@@ -17,7 +18,7 @@ import { TeacherModule } from './teacher/teacher.module';
  */
 
 @Module({
-    imports: [AuthModule, UserModule, UploadModule, PostModule, TeacherModule],
+    imports: [AuthModule, UserModule, UploadModule, PostModule, TeacherModule, CourseModule],
     controllers: [AppController],
     providers: [
         {
