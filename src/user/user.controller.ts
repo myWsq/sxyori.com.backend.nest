@@ -11,6 +11,7 @@ import {
     ClassSerializerInterceptor,
     Post,
     Param,
+    Delete,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import * as bcrypt from 'bcrypt';
@@ -25,6 +26,7 @@ import { ValidateUserIdDto } from './dto/validate-user-id.dto';
 import { UpdateUserPasswordDto } from './dto/update-user-password.dto';
 import { UpdateUserRoleDto } from './dto/update-user-role.dto';
 import { ResetUserMobileDto } from './dto/reset-user-mobile.dto';
+import { SetUserCourseDto } from './dto/set-user-course.dto';
 @Controller('user')
 export class UserController {
     constructor(
@@ -36,6 +38,12 @@ export class UserController {
     @UseInterceptors(ClassSerializerInterceptor)
     async getAllUser() {
         return await this.userService.getAllUser();
+    }
+
+    @Get('course')
+    @Auth()
+    async findUserCourse(@AuthUser() user: User) {
+        return this.userService.findUserCourse(user.id);
     }
 
     /** 用户注册 */
@@ -110,5 +118,28 @@ export class UserController {
         @Body() body: UpdateUserInfoDto,
     ) {
         return this.userService.updateUser(param.id, body);
+    }
+
+    /** 管理员查看用户课程情况 */
+    @Auth('ADMIN', 'SUPER_ADMIN')
+    @Get(':id/course')
+    async findUserCourseAdmin(@Param() param: ValidateUserIdDto) {
+        return this.userService.findUserCourse(param.id);
+    }
+    @Put(':id/course')
+    async setUserCourse(
+        @Param() param: ValidateUserIdDto,
+        @Body() body: SetUserCourseDto,
+    ) {
+        return this.userService.setUserCourse(
+            param.id,
+            body.courseId,
+            body.grade,
+        );
+    }
+
+    @Delete(':id/course/:courseId')
+    async removeUserCourse(@Param() param: any) {
+        return this.userService.removeUserCourse(param.id, param.courseId);
     }
 }

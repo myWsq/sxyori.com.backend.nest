@@ -18,12 +18,12 @@ export class IsCourseExist implements ValidatorConstraintInterface {
     async validate(value: any, args: ValidationArguments) {
         const course = await Course.findOne({
             where: {
-                [args.property]: value,
+                id: value,
             },
         });
         return !!course;
     }
     defaultMessage(args: ValidationArguments) {
-        return `Course $value does not exist`;
+        return `Course ${args.value} does not exist`;
     }
 }
