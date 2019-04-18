@@ -3,12 +3,12 @@
  * @author wsq
  * @email `wsq961@outlook.com`
  */
-import { IsOptional, IsNumber } from 'class-validator';
+import { IsOptional, IsNumber, IsString } from 'class-validator';
 
 export class GenUploadTokenDto {
-    @IsNumber()
+    @IsString()
     @IsOptional()
-    fileType?: number;
+    mimeLimit?: string;
 
     @IsNumber()
     @IsOptional()
