@@ -20,7 +20,6 @@ import { CourseIdDto } from './dto/course-id.dto';
 export class CourseController {
     constructor(private readonly courseService: CourseService) {}
     @Get()
-    @Auth('ADMIN', 'SUPER_ADMIN')
     getAllCourse() {
         return this.courseService.findCourseWithTeacher();
     }
